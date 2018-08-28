@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "App To Share Post Publicly and Privately",
   "main": "server.js",
+  "engines": {
+    "node": "10.4.0"
+  },
   "scripts": {
     "start": "node server.js",
     "watch": "nodemon server.js",
