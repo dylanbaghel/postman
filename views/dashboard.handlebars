@@ -14,14 +14,14 @@
     <tbody>
         {{#each posts}}
             <tr>
-                <td><a href="/posts/show/{{_id}}">{{title}}</a></td>
+                <td><a href="/posts/show/{{_id}}">{{truncate title 30 '....'}}</a></td>
                 <td>{{formatDate date 'MMMM Do YYYY'}}</td>
-                <td>{{status}}</td>
+                <td class="capitalize">{{status}}</td>
                 <td>
-                    <a href="/posts/edit/{{_id}}" class="btn btn-dark"><i class="fas fa-pencil-alt"></i></a>
+                    <a href="/posts/edit/{{_id}}" class="btn btn-dark delete-btn"><i class="fas fa-pencil-alt font-icons-xs"></i></a>
                     <form action="/posts/{{_id}}?_method=DELETE" id="delete-form" method="POST" class="form-inline">
                         <input type="hidden" value="DELETE" name="_method">
-                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                        <button class="btn btn-danger"><i class="fas fa-trash font-icons-xs"></i></button>
                     </form>
                 </td>
             </tr>

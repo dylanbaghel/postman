@@ -31,12 +31,11 @@ app.engine('handlebars', exphbs({
  }));
 app.use(methodOverride('_method'));
 app.set('view engine', 'handlebars');
-app.use(cookieParser('keyboard cat'));
+app.use(cookieParser());
 app.use(session({
         secret: 'secret',
         resave: false,
         saveUninitialized: false,
-        cookie: { maxAge: 60000 }
 }));
 app.use(flash());
 app.use(passport.initialize());
