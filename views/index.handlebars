@@ -1,0 +1,8 @@
+<h1>Welcome To Postman</h1>
+<p>Post V1.0.0 By Abhishek Baghel</p>
+<p>Share Your Stories With World, You Can Make Public Stories To Share With Other or You Just Save Your Private Stories That Will Only Be Accessible By You</p>
+{{#if user}}
+<a class="btn btn-danger btn-lg" href="/auth/google"><i class="fas fa-plus"></i> Create Post</a>
+{{else}}
+<a class="btn btn-danger btn-lg" href="/auth/google"><i class="fab fa-google mr-1"></i>Login With Google</a>
+{{/if}}

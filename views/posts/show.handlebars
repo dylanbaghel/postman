@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-8 mb-2">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{post.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{formatDate post.date 'MMMM Do YYYY'}}</h6>
+                <p class="card-text">{{{post.postBody}}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <img src="{{post._creator.image}}" class="card-img-top mb-2">
+                <h5 class="card-title">{{post._creator.displayName}}</h5>
+                <a href="/posts/user/{{post._creator._id}}" class="card-link">More From {{post._creator.displayName}}</a>
+            </div>
+        </div>
+    </div>
+    {{#if post.allowComments}}
+    <div class="col-md-8 mb-2">
+        <div class="card">
+            <div class="card-header">
+                Leave Comments
+            </div>
+            <div class="card-body">
+                {{#if user}}
+                <form action="/posts/comments/{{post._id}}" method="POST">
+                    <div class="form-group">
+                        <textarea name="commentBody" class="form-control"></textarea>
+                    </div>
+                    <input type="submit" value="Add Comment" class="btn btn-outline-success">
+                </form>
+                {{else}}
+                <p>Please
+                    <a href="/auth/google">Log In</a> To Leave A Comment</p>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                Comments
+            </div>
+            <div class="card-body">
+                {{#each post.comments}}
+                <div class="card card-body mb-2">
+                    <h5>{{commentBody}}</h5>
+                    <div class="chip">
+                        <img src="{{commentUser.image}}" alt="Person" width="48" height="48">
+                        <a href="/posts/user/{{commentUser._id}}">{{commentUser.displayName}}</a>
+                    </div>
+                </div>
+                {{else}} 
+                    Be The First To Post A Comment 
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+{{else}}
+<div class="col-md-8 mb-3">
+    <div class="card card-body">
+        Comments Are Not Allowed For This Post
+    </div>
+</div>
+{{/if}}

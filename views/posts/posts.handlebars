@@ -1,0 +1,19 @@
+<div class="row">
+    {{#each posts}}
+    <div class="col-md-4 mb-2">
+        <div class="card">
+            {{!-- <img src="{{_creator.image}}" class="card-img-top card-image"> --}}
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p>{{stripTags (truncate postBody 100 '...')}}</p>
+                <a class="btn btn-dark btn-block" href="/posts/show/{{_id}}">Read More</a>
+                <br>
+                <div class="chip">
+                    <img src="{{_creator.image}}" alt="Person" width="96" height="96"> 
+                    <a href="/posts/user/{{_creator._id}}">{{_creator.displayName}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>

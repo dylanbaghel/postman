@@ -1,0 +1,30 @@
+<h1>Welcome {{user.displayName}}</h1>
+<h5>Your Posts</h5>
+<a href="/posts/add" class="btn btn-danger mb-2"><i class="fas fa-plus"></i> Create Post</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Manipulate</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each posts}}
+            <tr>
+                <td><a href="/posts/show/{{_id}}">{{title}}</a></td>
+                <td>{{formatDate date 'MMMM Do YYYY'}}</td>
+                <td>{{status}}</td>
+                <td>
+                    <a href="/posts/edit/{{_id}}" class="btn btn-dark"><i class="fas fa-pencil-alt"></i></a>
+                    <form action="/posts/{{_id}}?_method=DELETE" id="delete-form" method="POST" class="form-inline">
+                        <input type="hidden" value="DELETE" name="_method">
+                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                    </form>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
