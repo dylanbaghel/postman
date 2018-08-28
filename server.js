@@ -18,6 +18,7 @@ const posts = require('./routes/posts');
 const auth = require('./routes/auth');
 const { truncate, stripTags, formatDate } = require('./helpers/hbs');
 const { authenticate } = require('./middleware/authenticate');
+const { logs } = require('./config/log');
 //MIDDLEWARES
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
@@ -40,6 +41,9 @@ app.use(session({
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+app.use((req, res, next) => {
+    logs(req, res, next);
+});
 
 //GLOBAL VARIABLES
 app.use((req, res, next) => {
