@@ -136,8 +136,8 @@ router.delete('/:id', authenticate, (req, res) => {
 //GET - /posts/user/:id - GET PARTICULAR USER POSTS
 router.get('/user/:id', (req, res) => {
     Post.find({
+        _creator: req.params.id,
         status: 'public',
-        _creator: req.params.id
     }).populate('_creator').then((posts) => {
         res.render('posts/posts', { posts });
     })
