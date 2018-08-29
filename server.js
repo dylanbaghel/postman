@@ -16,7 +16,7 @@ const { mongoose } = require('./db/mongoose');
 const { Post } = require('./models/Post');
 const posts = require('./routes/posts');
 const auth = require('./routes/auth');
-const { truncate, stripTags, formatDate } = require('./helpers/hbs');
+const { truncate, stripTags, formatDate, select } = require('./helpers/hbs');
 const { authenticate } = require('./middleware/authenticate');
 const { logs } = require('./config/log');
 //MIDDLEWARES
@@ -27,7 +27,8 @@ app.engine('handlebars', exphbs({
     helpers: {
         truncate: truncate,
         stripTags: stripTags,
-        formatDate: formatDate
+        formatDate: formatDate,
+        select: select
     }
  }));
 app.use(methodOverride('_method'));
