@@ -51,7 +51,7 @@ router.post('/', authenticate, (req, res) => {
 router.get('/', (req, res) => {
     Post.find({
         status: 'public'
-    }).populate('_creator').then((posts) => {
+    }).sort({ date: 'DESC' }).populate('_creator').then((posts) => {
         res.render('posts/posts', { posts });
     });
 });
@@ -60,7 +60,7 @@ router.get('/', (req, res) => {
 router.get('/show/:id', (req, res) => {
     Post.findOne({
         _id: req.params.id
-    }).populate('_creator').populate('comments.commentUser').then((post) => {
+    }).populate('_creator').populate('comments.commentUser').sort({ date: 'DESC' }).then((post) => {
         if (post.status === 'public') {
             res.render('posts/show', { post });
         } else {
@@ -138,7 +138,7 @@ router.get('/user/:id', (req, res) => {
     Post.find({
         _creator: req.params.id,
         status: 'public',
-    }).populate('_creator').then((posts) => {
+    }).sort({ date: 'DESC' }).populate('_creator').then((posts) => {
         res.render('posts/posts', { posts });
     })
 });
@@ -147,7 +147,7 @@ router.get('/user/:id', (req, res) => {
 router.get('/my', authenticate, (req, res) => {
     Post.find({
         _creator: req.user._id
-    }).populate('_creator').then((posts) => {
+    }).sort({ date: 'DESC' }).populate('_creator').then((posts) => {
         res.render('posts/posts', { posts });
     });
 })

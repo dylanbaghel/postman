@@ -65,7 +65,7 @@ app.get('/', (req, res) => {
 app.get('/dashboard', authenticate, (req, res) => {
     Post.find({
         _creator: req.user._id
-    }).then((posts) => {
+    }).sort({ date: 'DESC' }).then((posts) => {
         res.render('dashboard', { posts });
     })
 });
