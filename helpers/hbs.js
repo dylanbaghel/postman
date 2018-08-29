@@ -21,8 +21,12 @@ const select = (selected, options) => {
 }
 
 const editIcon = (postCreator, loggedUser, postId) => {
-  if (postCreator.toHexString() === loggedUser.toHexString()) {
-    return `<a href="/posts/edit/${postId}"><i class="fas fa-pencil-alt" ></i></a>`;
+  if (loggedUser) {
+    if (postCreator.toHexString() === loggedUser.toHexString()) {
+      return `<a href="/posts/edit/${postId}"><i class="fas fa-pencil-alt" ></i></a>`;
+    } else {
+      return '';
+    }
   } else {
     return '';
   }
