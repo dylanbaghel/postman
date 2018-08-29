@@ -20,4 +20,12 @@ const select = (selected, options) => {
   return options.fn(this).replace( new RegExp(' value=\"' + selected + '\"'), '$& selected="selected"').replace( new RegExp('>' + selected + '</option>'), ' selected="selected"$&');
 }
 
-module.exports = { truncate, stripTags, formatDate, select };
+const editIcon = (postCreator, loggedUser, postId) => {
+  if (postCreator.toHexString() === loggedUser.toHexString()) {
+    return `<a href="/posts/edit/${postId}"><i class="fas fa-pencil-alt" ></i></a>`;
+  } else {
+    return '';
+  }
+}
+
+module.exports = { truncate, stripTags, formatDate, select, editIcon };

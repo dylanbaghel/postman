@@ -2,7 +2,9 @@
     <div class="col-md-8 mb-2">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">{{post.title}}</h5>
+                <h5 class="card-title">{{post.title}}
+                    {{{editIcon post._creator._id user._id post._id}}}
+                </h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{formatDate post.date 'MMMM Do YYYY'}}</h6>
                 <p class="card-text">{{{post.postBody}}}</p>
             </div>

@@ -4,7 +4,9 @@
         <div class="card">
             {{!-- <img src="{{_creator.image}}" class="card-img-top card-image"> --}}
             <div class="card-body">
-                <h5 class="card-title">{{title}}</h5>
+                <h5 class="card-title">{{title}}
+                    {{{editIcon _creator._id ../user._id _id}}}
+                </h5>
                 <p>{{stripTags (truncate postBody 100 '...')}}</p>
                 <a class="btn btn-dark btn-block" href="/posts/show/{{_id}}">Read More</a>
                 <br>
