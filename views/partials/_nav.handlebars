@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
     <div class="container">
-        <a class="navbar-brand" href="/">Postman</a>
+        <a class="navbar-brand fade" href="/">Postman</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,26 +9,26 @@
             <ul class="navbar-nav ml-auto">
                 {{#if user}}
                 <li class="nav-item">
-                    <a href="/dashboard" class="nav-link"><i class="fas fa-user"></i> Dashboard</a>
+                    <a href="/dashboard" class="nav-link fade"><i class="fas fa-user fab-icon"></i> Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/posts/my" class="nav-link"><i class="fas fa-user-alt"></i> My Posts</a>
+                    <a href="/posts/my" class="nav-link fade"><i class="fas fa-user-alt fab-icon"></i> My Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/posts/add" class="nav-link"><i class="fas fa-plus"></i> Create Post</a>
+                    <a href="/posts/add" class="nav-link fade"><i class="fas fa-plus fab-icon"></i> Create Post</a>
                 </li>                 
                 <li class="nav-item">
-                    <a class="nav-link" href="/posts"><i class="fas fa-newspaper"></i> Public Posts</a>
+                    <a class="nav-link fade" href="/posts"><i class="fas fa-newspaper fab-icon"></i> Public Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/auth/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    <a href="/auth/logout" class="nav-link fade"><i class="fas fa-sign-out-alt fab-icon"></i> Logout</a>
                 </li>              
                 {{else}}
                 <li class="nav-item">
-                    <a class="nav-link" href="/posts"><i class="fas fa-newspaper"></i> Public Posts</a>
+                    <a class="nav-link fade" href="/posts"><i class="fas fa-newspaper fab-icon"></i> Public Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/auth/google" class="nav-link"><i class="fab fa-google"></i> Login</a>
+                    <a href="/auth/google" class="nav-link fade"><i class="fab fa-google fab-icon"></i> Login</a>
                 </li>
                 {{/if}}
             </ul>

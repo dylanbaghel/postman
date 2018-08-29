@@ -4,8 +4,61 @@ html, body {
     overflow-x: hidden;
 }
 
-#delete-form {
+#delete-comment-form {
     display: inline;
+}
+
+#delete-comment-form-btn {
+    background: #fff;
+    color: #000;
+    border: none;
+    outline: none;
+    transition: transform 1s;
+    animation-name: comment-delete-btn;
+    animation-iteration-count: 2;
+    animation-timing-function: ease-in-out;
+    animation-duration: 2s;
+    cursor: pointer;
+}
+
+#delete-comment-form-btn:hover {
+    transform: rotate(360deg);
+}
+
+.fab-icon {
+    animation-name: fab-rotate;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-direction: alternate-reverse;
+}
+
+.fade {
+    animation-name: fade-effect;
+    animation-duration: 2s;
+    cursor: pointer;
+    animation-delay: .1s;
+    opacity: 0;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade-effect {
+    0% {opacity: 0;}
+    25% {opacity: .3;}
+    50% {opacity: .5;}
+    100% {opacity: 1;}
+}
+
+@keyframes fab-rotate {
+    from {transform: rotateY(0deg);}
+    to {transform: rotateY(360deg);}
+}
+
+@keyframes comment-delete-btn {
+    from {color: #000;}
+    to {color: red;}
 }
 
 .chip {

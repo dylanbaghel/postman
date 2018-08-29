@@ -32,4 +32,21 @@ const editIcon = (postCreator, loggedUser, postId) => {
   }
 }
 
-module.exports = { truncate, stripTags, formatDate, select, editIcon };
+const removeIcon = (postCreator, loggedUser, commentId, postId) => {
+  if (loggedUser) {
+    if (postCreator.toHexString() === loggedUser.toHexString()) {
+      return `
+              <form action="/posts/comments/${postId}/${commentId}?_method=DELETE" method="POST" class="form-inline" id="delete-comment-form">
+                <input type="hidden" value="DELETE" name="_method" />
+                <button id="delete-comment-form-btn"><i class="fas fa-trash"></i></button>
+              </form>
+            `;
+    } else {
+      return '';
+    }
+  } else {
+    return '';
+  }
+};
+
+module.exports = { truncate, stripTags, formatDate, select, editIcon, removeIcon };

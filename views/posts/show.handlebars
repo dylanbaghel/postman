@@ -48,7 +48,7 @@
             <div class="card-body">
                 {{#each post.comments}}
                 <div class="card card-body mb-2">
-                    <h5>{{commentBody}}</h5>
+                    <h5>{{commentBody}} {{{removeIcon ../post._creator._id ../user._id _id ../post._id}}}</h5>
                     <div class="chip">
                         <img src="{{commentUser.image}}" alt="Person" width="48" height="48">
                         <a href="/posts/user/{{commentUser._id}}">{{commentUser.displayName}}</a>

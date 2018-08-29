@@ -179,4 +179,20 @@ router.post('/comments/:id', (req, res) => {
     }
 });
 
+//DELETE - /posts/comment/:postId/:commentId - DELETE PARTICULAR COMMENT
+router.delete('/comments/:postId/:commentId', (req, res) => {
+    Post.findOne({
+        _id: req.params.postId
+    }).then((post) => {
+        let filteredComments = post.comments.filter((comment) => {
+            return comment._id.toHexString() !== req.params.commentId;
+        });
+
+        post.comments = filteredComments;
+        post.save().then((post) => {
+            res.redirect(`/posts/show/${req.params.postId}`);
+        })
+    })
+});
+
 module.exports = router;
