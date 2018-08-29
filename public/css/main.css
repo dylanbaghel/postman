@@ -34,7 +34,7 @@ html, body {
     animation-direction: alternate-reverse;
 }
 
-.fade {
+.fade-effect {
     animation-name: fade-effect;
     animation-duration: 2s;
     cursor: pointer;
