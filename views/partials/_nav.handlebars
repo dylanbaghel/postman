@@ -9,23 +9,23 @@
             <ul class="navbar-nav ml-auto">
                 {{#if user}}
                 <li class="nav-item">
-                    <a href="/dashboard" class="nav-link">Dashboard</a>
+                    <a href="/dashboard" class="nav-link"><i class="fas fa-user"></i> Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/posts/my" class="nav-link">My Posts</a>
+                    <a href="/posts/my" class="nav-link"><i class="fas fa-user-alt"></i> My Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/posts/add" class="nav-link">Create Post</a>
+                    <a href="/posts/add" class="nav-link"><i class="fas fa-plus"></i> Create Post</a>
                 </li>                 
                 <li class="nav-item">
-                    <a class="nav-link" href="/posts">Public Posts</a>
+                    <a class="nav-link" href="/posts"><i class="fas fa-newspaper"></i> Public Posts</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/auth/logout" class="nav-link">Logout</a>
+                    <a href="/auth/logout" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
                 </li>              
                 {{else}}
                 <li class="nav-item">
-                    <a class="nav-link" href="/posts">Public Posts</a>
+                    <a class="nav-link" href="/posts"><i class="fas fa-newspaper"></i> Public Posts</a>
                 </li>
                 {{/if}}
             </ul>
